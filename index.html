@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      humanScore = 0;
+      computerScore = 0;
+      WinLose = false;
+
+      function getComputerChoice() {
+        let computerChoice;
+        let randomNumber = 0;
+        randomNumber = Math.floor(Math.random() * 3);
+        if (randomNumber === 0) {
+          computerChoice = "rock";
+        } else if (randomNumber === 1) {
+          computerChoice = "paper";
+        } else {
+          computerChoice = "scissor";
+        }
+        return computerChoice;
+      }
+
+      function getHumanChoice() {
+        let humanChoice = prompt(
+          "What will you choose: rock, paper or scissor?"
+        );
+        return humanChoice.toLowerCase();
+      }
+
+      function playGame(humanChoice, computerChoice) {
+        for (i = 1; i <= 5; i++) {
+          const humanChoice = getHumanChoice();
+          const computerChoice = getComputerChoice();
+          if (humanChoice === computerChoice) {
+            alert("Draw!");
+            WinLose = null;
+          } else if (humanChoice === "rock" && computerChoice === "paper") {
+            alert("You lose! Paper beats Rock");
+            WinLose = false;
+          } else if (humanChoice === "paper" && computerChoice === "rock") {
+            alert("You win! Paper beats Rock");
+            WinLose = true;
+          } else if (humanChoice === "scissor" && caches === "rock") {
+            alert("You lose! Rock beats Scissor");
+            WinLose = false;
+          } else if (humanChoice === "rock" && computerChoice === "scissor") {
+            alert("You win! Rock beats Scissor");
+            WinLose = true;
+          } else if (humanChoice === "paper" && computerChoice === "scissor") {
+            alert("You lose! Scissor beats Paper");
+            WinLose = false;
+          } else if (humanChoice === "paper" && computerChoice === "scissor") {
+            alert("You win! Scissor beats Paper");
+            WinLose = true;
+          } else {
+            alert("Wrong input");
+            WinLose = false;
+          }
+          if (WinLose === true) {
+            humanScore += 1;
+          } else if (WinLose === false) {
+            computerScore += 1;
+          } else {
+            continue;
+          }
+        }
+        alert(
+          `Your score is: ${humanScore} and the computers score is ${computerScore}!`
+        );
+      }
+
+      playGame();
+    </script>
+  </body>
+</html>
