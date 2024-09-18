@@ -11,7 +11,7 @@
       //initialize variables to store scores
       humanScore = 0;
       computerScore = 0;
-      draws=0;
+      draws = 0;
       WinLose = false;
 
       //return computers choice
@@ -40,8 +40,7 @@
       //play game for 5 rounds
       function playGame() {
         for (i = 1; i <= 5; i++) {
-
-          //callback functions to play single game
+          //callback functions to fetch human and computer choice
           const humanChoice = getHumanChoice();
           const computerChoice = getComputerChoice();
 
@@ -78,11 +77,11 @@
           } else if (WinLose === false) {
             computerScore += 1;
           } else {
-            draws+=1;
+            draws += 1;
           }
-
-          //display scores
         }
+
+        //display scores
         alert(
           `Your score: ${humanScore} Computers score: ${computerScore} Draws: ${draws}`
         );
